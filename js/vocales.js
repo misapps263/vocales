@@ -10,9 +10,10 @@ x.ready(inicializarEventos);
 function inicializarEventos()
 {	
  
-  var x;
+   var x;
   x=$("#checkvocal");
-  x.click(function(){check('true')	})
+  x.bind('click',function(){check('true')	})
+	//x.click(function(){check('true')	})
 	var o;
   o=$("#checkcon");
   o.click(function(){check('false')	})
