@@ -23,6 +23,7 @@ function inicializarEventos()
  var abecedario=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','e','i','o','u'];
        var letra=abecedario[Math.floor((Math.random() * abecedario.length) + 1)]; 
        $('#check').text(letra);
+       alert('ponletra');
 			 
  }
  
@@ -49,7 +50,7 @@ function check(a)
   x.css("color","#ff0000");
   x.css("background-color","#ffff00");
   x.css("font-family","Courier");
-	x.text(isV);
+//	x.text(isV);
 	
 	
 	
@@ -72,20 +73,20 @@ correcto();
 console.log('INCorrecto');
 incorrecto();
 }
- ponletra();
+ 
 }
  
 function incorrecto(){
 $('#display').text('Ohh!!!:(');
 $('#display').css('color','#FF0084');
 $('#display').removeClass('pulse');
-$('#display').addClass('tossing');
+$('#display').addClass('tossing');ponletra();
 }
 function correcto(){
 $('#display').text('Bieeen!!!XD');
 $('#display').css('color','#2C539E');
 $('#display').css('text-shadow','white');
 $('#display').removeClass('tossing');
-$('#display').addClass('pulse');
+$('#display').addClass('pulse');ponletra();
 
 }
