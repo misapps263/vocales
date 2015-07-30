@@ -24,6 +24,8 @@ function inicializarEventos()
  var abecedario=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','e','i','o','u'];
        var letra=abecedario[Math.floor((Math.random() * abecedario.length) + 1)]; 
        $('#check').text(letra);
+       //mostramos el menu de botones	
+	$('#buttons').css('display','inline');
 			  })
  }
  
@@ -52,8 +54,8 @@ function check(a)
   x.css("font-family","Courier");
 	//x.text(isV);
 	
-	
-	
+//ocultamos el menu de botones	
+	$('#buttons').css('display','none');
 	
    //myarray.push(isV);
 
