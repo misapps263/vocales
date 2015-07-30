@@ -10,7 +10,7 @@ x.ready(inicializarEventos);
 function inicializarEventos()
 {	
  
-   var x;
+  var x;
   x=$("#checkvocal");
   x.bind('click',function(){check('true')	})
 	//x.click(function(){check('true')	})
@@ -20,11 +20,11 @@ function inicializarEventos()
  ponletra();
 }
  function ponletra(){
+ $('#check').click(function(){ 
  var abecedario=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','e','i','o','u'];
        var letra=abecedario[Math.floor((Math.random() * abecedario.length) + 1)]; 
        $('#check').text(letra);
-       
-			 
+			  })
  }
  
  function contador(){}
@@ -50,7 +50,7 @@ function check(a)
   x.css("color","#ff0000");
   x.css("background-color","#ffff00");
   x.css("font-family","Courier");
-//	x.text(isV);
+	//x.text(isV);
 	
 	
 	
@@ -73,20 +73,21 @@ correcto();
 console.log('INCorrecto');
 incorrecto();
 }
- 
+
 }
  
 function incorrecto(){
-$('#display').text('Ohh!!!:(');
-$('#display').css('color','#FF0084');
-$('#display').removeClass('pulse');
-$('#display').addClass('tossing');ponletra();
+$('#check').html('Ohh!!!:(z <br>continuar');
+$('#check').css('color','#FF0084');
+$('#check').removeClass('pulse');
+$('#check').addClass('tossing'); 
+$('#check').click(ponletra());
 }
 function correcto(){
-$('#display').text('Bieeen!!!XD');
-$('#display').css('color','#2C539E');
-$('#display').css('text-shadow','white');
-$('#display').removeClass('tossing');
-$('#display').addClass('pulse');ponletra();
-
+$('#check').text('Bieeen!!!XD');
+$('#check').css('color','#2C539E');
+$('#check').css('text-shadow','white');
+$('#check').removeClass('tossing');
+$('#check').addClass('pulse');  
+$('#check').click(ponletra());
 }
