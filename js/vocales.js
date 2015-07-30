@@ -26,6 +26,8 @@ function inicializarEventos()
        $('#check').text(letra);
        //mostramos el menu de botones	
 	$('#buttons').css('display','inline');
+	//ocultamos los mensajes	
+	$('.mensaje').css('display','none');
 			  })
  }
  
@@ -79,14 +81,14 @@ incorrecto();
 }
  
 function incorrecto(){
-$('#check').html('Ohh!!!:(z <br>continuar');
+$('#check').html('<div class="mensaje">Ohh!!!:(z <div><small style="font-size:50%;">continuar</small></div>');
 $('#check').css('color','#FF0084');
 $('#check').removeClass('pulse');
 $('#check').addClass('tossing'); 
 $('#check').click(ponletra());
 }
 function correcto(){
-$('#check').text('Bieeen!!!XD');
+$('#check').html('<div class="mensaje">Bieeen!!! <div><small style="font-size:50%;">continuar</small></div>');
 $('#check').css('color','#2C539E');
 $('#check').css('text-shadow','white');
 $('#check').removeClass('tossing');
