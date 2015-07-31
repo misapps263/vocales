@@ -37,7 +37,7 @@
 			<style type="text/css">
 			
 <!-- 
-body{background-image: url('../img/fondo.jpg');}
+ 
 
 @keyframes animatedBackground {
 	0% { background-position: 0 0; }
@@ -175,12 +175,12 @@ body{background-image: url('../img/fondo.jpg');}
 						 
         </style>
     </head>
-    <body>
+    <body style="background-image: url('../img/fondo.jpg');">
         <div id="jqt" >
             <div id="about" class="selectable">
                 <p><img src="jqtouch.png" /></p>
                 <p><strong>Adair </strong><br>Version 1.0 beta<br>
-                    <a href="http://www.davidkaneda.com">By Adair</a></p>
+                    <a href="#">By Adair</a></p>
                 <p><em>creando <br> con HTML, CSS, and jQuery.</em></p>
                 <p>
                     <a target="_blank" href="http://twitter.com/jqtouch">@jQTouch on Twitter</a>
@@ -267,7 +267,7 @@ body{background-image: url('../img/fondo.jpg');}
                       <div  class=""style="height:100%;background:  url('img/intro.jpg'); background-size:cover; background-repeat: no-repeat;  background-position:center; ">
       								<img src="iimg/render.jpg" style="width:100%;" alt="">
 											<center>
-                          <a href="#ui" class="cube whiteButton pulse" style="background:#47B9EF;width:113pt;height:20pt;" onclick="playAudio('../res/sounds/tada.wav');>JUGAR</a> </li>
+                          <a href="#ui" class="cube whiteButton pulse" style="background:#47B9EF;width:113pt;height:20pt;" onclick="playAudio('../res/sounds/tada.wav');>JUGAR</a> 
                       </center>     
                               
                            
@@ -320,7 +320,7 @@ body{background-image: url('../img/fondo.jpg');}
         document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-            playAudio("http://example.com/audio.mp3"); //change this
+            playAudio("../res/sounds/tada.wav"); //change this
         }
 
         var my_media = null;
