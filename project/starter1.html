@@ -23,6 +23,7 @@
         <script src="../js/jtouch/extensions/jqt.menusheet.min.js" type="application/x-javascript" charset="utf-8"></script>
 				
 			<script src="../js/vocales.js" type="application/x-javascript" charset="utf-8"></script>
+			<script src="../js/cordova.js" type="application/x-javascript" charset="utf-8"></script>
 
 
 			
@@ -34,7 +35,10 @@
 			
 			<!--//////////////////////////////-->
 			<style type="text/css">
+			
 <!-- 
+body{background-image: url('../img/fondo.jpg');}
+
 @keyframes animatedBackground {
 	0% { background-position: 0 0; }
 	100% { background-position: -300px 0; }
@@ -188,7 +192,8 @@
                 <div class="toolbar"  >
                     <h1>Animations</h1>
                     <a class="  cube back" href="#"style=" color:rgba(255,255,255,.9);    display:inline;">Home</a>
-									
+		    <a href="#marcador" class="cube whiteButton "  style=" color:rgba(0,0,0,.9); display:inline; float:right;" id=""> Marcador</a></li>
+							
                 </div>
                 <div  class="scroll" id=" ">
                     
@@ -203,7 +208,6 @@
  												 <span id="checkvocal"><a href="#" class="whiteButton "  style=" color:rgba(0,0,0,.9);   display:inline;" >Vocal</a></span>
 											         <span id="checkcon"><a href="#" class="whiteButton"  style=" color:rgba(0,0,0,.9); display:inline;"> Consonante</a></li></span>
 												</div> 
-                       	 <a href="#marcador" class="cube whiteButton "  style=" color:rgba(0,0,0,.9); display:inline;" id=""> Marcador</a></li>
 												 
 											 </center>
  
@@ -263,7 +267,7 @@
                       <div  class=""style="height:100%;background:  url('img/intro.jpg'); background-size:cover; background-repeat: no-repeat;  background-position:center; ">
       								<img src="iimg/render.jpg" style="width:100%;" alt="">
 											<center>
-                          <a href="#ui" class="cube whiteButton pulse" style="background:#47B9EF;width:113pt;height:20pt;">JUGAR</a> </li>
+                          <a href="#ui" class="cube whiteButton pulse" style="background:#47B9EF;width:113pt;height:20pt;" onclick="playAudio('../res/sounds/tada.wav');>JUGAR</a> </li>
                       </center>     
                               
                            
@@ -310,4 +314,77 @@
         $("meta[name='apple-mobile-web-app-status-bar-style']").remove();
       }
     </script>
+    <!-- phonegap audio---->
+            <script type="text/javascript" charset="utf-8">
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+            playAudio("http://example.com/audio.mp3"); //change this
+        }
+
+        var my_media = null;
+        var mediaTimer = null;
+
+        // Play audio
+        //
+        function playAudio(src) {
+            // Create Media object from src
+            my_media = new Media(src, onSuccess, onError);
+
+            // Play audio
+            my_media.play();
+
+            // Update my_media position every second
+            if (mediaTimer == null) {
+                mediaTimer = setInterval(function() {
+                    // get my_media position
+                    my_media.getCurrentPosition(
+                        // success callback
+                        function(position) {
+                            if (position > -1) {
+                                setAudioPosition((position/1000) + " sec");
+                            }
+                        },
+                        // error callback
+                        function(e) {
+                            console.log("Error getting pos=" + e);
+                            setAudioPosition("Error: " + e);
+                        }
+                    );
+                }, 1000);
+            }
+        }
+
+ 
+        function pauseAudio() {
+            if (my_media) {
+                my_media.pause();
+            }
+        }
+
+ 
+        function stopAudio() {
+            if (my_media) {
+                my_media.stop();
+            }
+            clearInterval(mediaTimer);
+            mediaTimer = null;
+        }
+
+        
+        function onSuccess() {
+            console.log("playAudio():Audio Success");
+        }
+
+        
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' + 
+                  'message: ' + error.message + '\n');
+        }
+
+        function setAudioPosition(position) {
+            document.getElementById('audio_position').innerHTML = position;
+        }
+    <!------>
 </html>
