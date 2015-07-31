@@ -9,7 +9,8 @@ x.ready(inicializarEventos);
 
 function inicializarEventos()
 {	
- 
+ //ocultamos el menu de botones	
+	$('#buttons').css('display','none');
   var x;
   x=$("#checkvocal");
   x.bind('click',function(){check('true')	})
